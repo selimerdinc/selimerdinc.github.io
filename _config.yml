@@ -1,235 +1,132 @@
-# --- General options --- #
+### VALUES YOU SHOULD CHANGE ###
 
-# url is the full website URL
-# baseurl is the website's URL without the hostname
-
-# If you are building a simple GitHub user page (http://username.github.io) then use these settings:
-url: "https://www.selimerdinc.com"
+# GENERAL SITE SETTINGS
+# title: This will be displayed as the website's name in your browser tab.
+title: Selim Erdinç
+subtitle: Zihninizi kodlarla özgür bırakın.
+# description: This will be meta HTML tag content. This can be ignored.
+description: Zihninizi kodlarla özgür bırakın.
+# baseurl: The subpath of your site
+# > set this to "", if you renamed the repository to <user>.github.io
 baseurl: ""
 
-# If you are building a GitHub project page then use these settings:
-#url: "http://username.github.io/projectname"
-#baseurl: "/projectname"
+# LANDING PAGE
+# username: This will displayed on the landing page as your name.
+username: Selim ERDİNÇ
+# typing_text: This will be typed before 'scroll down for more'.
+# > set this to your job title, e.g. Fullstack Developer
+typing_text: Test Otomasyon Mühendisiyim.
+# email: Your E-Mail address for the email button.
+email: selim@selimerdinc.com
+# For every social button you want to display, set your username or userid
+# If you do not use one of the following websites, then leave it empty
+# > twitter_username:
+github_username: selimerdinc
+instagram_username: erdincselim
+#codepen_username: exampleUser
+#dev_username: exampleUser
+linkedin_username: selimerdinc
+medium_username: selimerdinc
+superpeer_username: selimerdinc
+#twitter_username: exampleUser
 
-# Of course don't forget to change the username and projectname to YOUR username and project
+# ABOUT ME SECTION
+# show_aboutme_card:
+# > setting this to true, will display the About Me section
+# > setting this to false, will omit the About Me section
+show_aboutme_card: true
+# about_me_title: The will be displayed as the title in the About Me section
+about_me_title: Hakkımda
+# about_me_description: This will be displayed under the title.
+about_me_description: Merhaba, ben Selim Erdinç. Yazılım geliştirme ve test otomasyonu konularında uzmanım. Python ve test teknolojileriyle ilgili konular üzerine yazılar yazıyorum. Ayrıca, teknoloji ve yazılım dünyasındaki yenilikleri takip ediyor ve bu bilgileri blogumda paylaşıyorum. Detaylı görmek için <a class="highlight-link" href="https://github.com/selimerdinc" target="_blank" rel="noreferrer"> Github </a> ve <a class="highlight-link" href="https://medium.com/@selimerdinc" target="_blank" rel="noreferrer"> Medium </a> hesaplarıma göz atabilirsiniz.
 
-# Name of website
-title: Selim ERDİNÇ
-subtitle: Python & Test Otomasyon
 
-# Short description of your site
-description: Python, geliştirici & test araçları ve teknoloji ile ilgili yazılar.
+# SKILLS SECTION
+# show_skills_card:
+# > setting this to true, will display the Skills section
+# > setting this to false, will omit the Skills section
+show_skills_card: true
+# about_me_title: The will be displayed as the title in the Skills section
+skills_title: Tecrübeler
 
-# --- Navigation bar options --- #
+# TIMELINE SECTION
+# show_timeline_card:
+# > setting this to true, will display the Timeline section
+# > setting this to false, will omit the Timeline section
+show_timeline_card: true
+# timeline_title: The will be displayed as the title in the Timeline section
+timeline_title: Eğitim ve Deneyimler
+# cv_download_link: The link where you host your cv.
+# > e.g. you share your cv on your dropbox, then add the dropbox link here
+cv_download_link: CV_SE.pdf
 
-# List of links in the navigation bar
-navbar-links:
-  Anasayfa: "https://www.selimerdinc.com"
-  Hakkımda: "hakkimda"
-  Kategoriler:
-    - Teknoloji: "https://www.selimerdinc.com/teknoloji"
-    - Python: "https://www.selimerdinc.com/python"
-    - Linux: "https://www.selimerdinc.com/linux"
-    #- GitHub Pages: "https://pages.github.com/"
-  #İletişim: "iletisim"
+# PROJECTS SECTION
+# show_projects_card:
+# > setting this to true, will display the Projects section
+# > setting this to false, will omit the Projects section
+show_projects_card: true
+# show_projects:
+# > setting this to true, will display your listed projects in _data/projects.yml
+# > setting this to false, will omit your listed projects
+show_projects: true
+# projects_title: The will be displayed as the title of your projects
+projects_title: Projeler
+# show_os_projects:
+# > setting this to true, will display your public projects on github
+# > setting this to false, will omit your public projects on github
+show_os_projects: true
+# os_projects_title: The will be displayed as the title of your open source projects
 
-# Image to show in the navigation bar - image must be a square (width = height)
-# Remove this parameter if you don't want an image in the navbar
-avatar: "/img/IMG_5828.JPG"
+# CONTACT SECTION
+# show_contact_card:
+# > setting this to true, will display the Contact section
+# > setting this to false, will omit the Contact section
+show_contact_card: true
+# contact_title: The will be displayed as the title in the Contact section
+contact_title: İletişim
+# contact_description: This will be displayed under the title.
+contact_description: Benimle iletişime geçmek için aşağıdaki yöntemlerden birini kullanabilirsiniz. Her türlü soru, öneri ya da iş birliği teklifi için bana ulaşabilirsiniz. Size en kısa sürede geri dönüş yapmaktan memnuniyet duyarım.
 
-# If you want to have an image logo in the top-left corner instead of the title text,
-# then specify the following parameter
-# title-img: /path/to/image
+# GITHUB-METADATA
+# Set this to your forked repository
+# > e.g. <user>/<user>.github.io
+repository: longpdo/neumorphism
+projects:
+  # sortby:
+  # > set this to pushed, if you want to sort your github repositories by time.
+  # > set this to stars, if you want to sort your github repositories by stars.
+  sort_by: pushed
+  exclude:
+    # archived:
+    # > setting this to true, will exclude archived repositories
+    # > setting this to false, will also display archived repositories
+    archived: true
+    # forks:
+    # > setting this to true, will exclude forked repositories
+    # > setting this to false, will also display forked repositories
+    forks: true
+    # projects: A list of the repository names you want to exclude from the listing.
+    projects:
+    # - repo1-to-be-excluded
+    # - repo2-to-be-excluded
 
-# --- Background colour/image options --- #
+# GOOGLE-ANALYTICS
+# Set the id, if you want to track your website with Google Analytics
+# > set this to "", if you do not want to track with Google Analytics
+google-analytics:
+  id: "UA-158757509-2"
 
-# By default, the navigation bar and footer have a light gray background, and the main page
-# has a white background. You can specify a different background colour or a background image
-# for the navigation bar, the main page, and the footer.
-# navbar-col: "orange"
-# navbar-img: "/img/bgimage.png"
-# footer-col: "blue"
-# footer-img: "/img/bgimage.png"
-# page-col: "#FF0000"
-# page-img: "/img/bgimage.png"
-
-# --- Footer options --- #
-
-# Change all these values or delete the ones you don't want.
-# Important: you must keep the "name" parameter, everything else you can remove
-author:
-  name: Sinan Erdinç
-  email: "selimerdinc@mail.com"
-  #facebook: helloiamsinan  # eg. daattali
-  github: selimerdinc    # eg. daattali
-  twitter: helloiamsinan   # eg. daattali
-  #reddit: yourname    # eg. daattali
-  #google-plus: +yourname   # eg. +DeanAttali or 109424658772469020925
-  linkedin: selimerdinc  # eg. daattali
-  #xing: yourname      # eg. daattali
-  #stackoverflow: yourlink  # eg. "3943160/daattali"
-  #snapchat: yourname  # eg. daattali
-  instagram: helloiamsinan # eg. daattali
-  youtube: channel/UCnR5ijZOAtcBk4ZKUvrMrgA   # eg. user/daattali or channel/daattali
-  #spotify: yourname   # eg. daattali
-  #telephone: yourphone   # eg. +14159998888
-  #steam: yourname     # eg. daattali
-  #twitch: yourname    # eg. daattali
-  #yelp: yourname      # eg. daattali
-
-# Select which links to show in the footer
-footer-links-active:
-  rss: true
-  facebook: false
-  email: true
-  twitter: true
-  google-plus: false
-  github: true
-  reddit: false
-  linkedin: true
-  xing: false
-  stackoverflow: false
-  snapchat: false
-  instagram: true
-  youtube: true
-  spotify: false
-  telephone: false
-  steam: false
-  twitch: false
-  yelp: false
-
-# Select which share links to show in posts
-share-links-active:
-  twitter: true
-  facebook: true
-  google: true
-  linkedin: true
-
-# How to display the link to the website in the footer
-# Remove this if you don't want a link in the footer
-url-pretty: "selimerdinc.com"  # eg. "deanattali.com/beautiful-jekyll"
-
-# --- Misc --- #
-# Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-disqus: "selimerdinc-com"
-
-# Fill in your Google Analytics ID to track your website using GA
-google_analytics: "UA-6148434-1"
-
-# Google Tag Manager ID
-#gtm: ""
-
-# Facebook App ID
-# fb_app_id: ""
-
-# Excerpt Word Length
-# Truncates the excerpt to the specified number of words on the index page
-excerpt_length: 60
-
-# Character used to separate site title and description in HTML document title
-# and RSS feed title
-title-separator: "-"
-
-# --- Don't need to touch anything below here (but you can if you want) --- #
-
-# Output options (more information on Jekyll's site)
-timezone: "Europe/Istanbul"
-markdown: kramdown
-highlighter: rouge
-permalink: /:title/
-paginate: 5
-
-kramdown:
-  input: GFM
-
-# Default YAML values (more information on Jekyll's site)
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      comments: true  # add comments to all blog posts
-      social-share: true # add social media sharing buttons to all blog posts
-  -
-    scope:
-      path: "" # all files
-    values:
-      layout: "page"
-      show-avatar: true
-
-# Use tags pages (not recommended if you are deploying via GitHub pages, only set to true if deploying locally with ruby)
-link-tags: false
-
-# Exclude these files from production site
-exclude:
-  - CHANGELOG.md
-  - CNAME
-  - Dockerfile
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - Vagrantfile
-
-# prose.io config
-prose:
-  rooturl: '_posts'
-  media: 'img'
-  ignore:
-    - 404.html
-    - LICENSE
-    - feed.xml
-    - _config.yml
-    - /_layouts
-    - /_includes
-    - /css
-    - /img
-    - /js
-  metadata:
-    _posts:
-      - name: "layout"
-        field:
-          element: "hidden"
-          value: "post"
-      - name: "title"
-        field:
-          element: "text"
-          label: "Post title"
-          placeholder: "Title"
-          alterable: true
-      - name: "subtitle"
-        field:
-          element: "textarea"
-          label: "Subtitle"
-          placeholder: "A description of your post."
-          alterable: true
-      - name: "date"
-        field:
-          element: "text"
-          label: "Date"
-          help: "Enter date of post."
-          placeholder: "yyyy-mm-dd"
-          alterable: true
-      - name: "image"
-        field:
-          element: "text"
-          label: "Image"
-          help: "Add a thumbnail image to your post."
-          placeholder: "Thumbnail"
-          alterable: true
-      - name: "published"
-        field:
-          element: "checkbox"
-          label: "Publish"
-          help: "Check to publish post, uncheck to hide."
-
-gems:
-  - jekyll-paginate
-  - jekyll-minifier
+### END OF VALUES YOU SHOULD CHANGE ###
 
 plugins:
-    - jekyll-minifier
-# Beautiful Jekyll / Dean Attali
-# 2fc73a3a967e97599c9763d05e564189
+  - "jekyll-github-metadata"
+
+exclude:
+  [
+    "_assets",
+    "Gemfile",
+    "Gemfile.lock",
+    "gulpfile.js",
+    "node_modules",
+    "package.json",
+  ]

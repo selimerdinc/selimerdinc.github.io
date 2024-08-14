@@ -1,0 +1,39 @@
+# > name: Name of your framework
+# > weight: Describes how good you know the framework - values from 1 up to 5
+#
+# Example of a framework
+# - name: Framework
+#   weight: 5
+
+- name: Python
+  weight: 5
+
+- name: RobotFramework
+  weight: 3
+
+- name: Playwright
+  weight: 4
+
+- name: Locust
+  weight: 3
+
+- name: Pytest
+  weight: 2
+
+- name: Selenium
+  weight: 3
+
+- name: Jira
+  weight: 1
+
+- name: Postman
+  weight: 3
+
+- name: Flask
+  weight: 2
+
+- name: Appium
+  weight: 4
+
+- name: Docker
+  weight: 5

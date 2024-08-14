@@ -1,0 +1,57 @@
+# > name: Name of your project
+# > descr: Description of your project
+# > demo: Link to your project
+# > tags: List of technologies you used in your projects
+#
+
+
+- name: Python Kullanarak Projelerimizi Nasıl Paketleriz?
+  descr: " Python programlama dili kullanarak döviz kurları sağlayan bir Flask API geliştirme sürecini ele alacağız. WebScraping yoluyla çektiğimiz değerleri bir API ile servis haline getiriyoruz. Projemizin amacı, kullanıcıların belirli bir para birimi için güncel döviz kurlarını kolaylıkla sorgulayabilecekleri basit ve etkili bir çözüm sunmaktır. Bu API’yi geliştirdikten sonra, herkesin kullanabileceği şekilde PyPI üzerinde bir paket olarak yayınlayacağız. Adım adım ilerleyerek hem kodlama sürecini hem de dağıtım aşamalarını detaylı bir şekilde açıklayacağız. Bu rehber, benzer projeler geliştirmek isteyenler için kapsamlı bir kaynak oluşturmayı hedefliyor."
+  Github: https://github.com/selimerdinc/exchange_rates
+  Medium: https://medium.com/@selimerdinc/python-kullanarak-projelerimiz-nas%C4%B1l-paketleriz-3e3793c09958
+  tags:
+    - tag: Flask
+    - tag: Python
+
+- name: Locust ile Gelişmiş Yük Testi, Reqres.in Üzerinde Örnek Uygulama
+  descr: "Yük testi hakkında temel bilgileri paylaşacak, ardından Locust kullanarak Reqres.in üzerinde nasıl ileri düzey yük testleri yapabileceğimizi göstereceğim."
+  Github: https://github.com/selimerdinc/locustLoadPlayground
+  Medium: https://medium.com/@selimerdinc/locust-ile-geli%C5%9Fmi%C5%9F-y%C3%BCk-testi-reqres-in-%C3%BCzerinde-%C3%B6rnek-uygulama-28495a62f8db
+  tags:
+    - tag: Python
+    - tag: Locust
+
+- name: Python Flask ile Mock API ve Swagger Dokümantasyonu Oluşturma
+  descr: "Python Flask kullanarak nasıl mock API oluşturabileceğinizi ve Flasgger ile Swagger dokümantasyonu ekleyebileceğinizi anlatacağım."
+  Github: https://github.com/selimerdinc/flaskMockApi
+  Medium: https://medium.com/@selimerdinc/python-flask-ile-mock-api-ve-swagger-dok%C3%BCmantasyonu-olu%C5%9Fturma-9fc79d9e650c
+  tags:
+    - tag: Python
+    - tag: Flask
+
+
+- name: Web Uygulamalarında Test Otomasyonu, Playwright Testleri
+  descr: "Playwright kullanarak bir web uygulamasında nasıl test otomasyonu yapabileceğinizi ve özellikle Web proje testlerini nasıl entegre edebileceğinizi adım adım göstereceğim."
+  Github: https://github.com/selimerdinc/pythonPlaywright
+  Medium: https://medium.com/@selimerdinc/web-uygulamalar%C4%B1nda-test-otomasyonu-playwright-ile-textbox-testleri-c48c07aefbaf
+  tags:
+    - tag: Python
+    - tag: Playwright
+
+
+- name: Python Playwright Kullanarak API Testleri Nasıl Yapılır?
+  descr: "Python programlama dili ile Playwright ve Pytest kullanarak API testlerini nasıl gerçekleştirebileceğimizi, demoqa.com ve reqres.in gibi popüler test siteleri üzerinde örneklerle açıklayacağız. Hem gerçek isteklerle hem de mock servislerle GET ve POST işlemlerinin nasıl yapılacağını adım adım ele alacağız."
+  Github: https://github.com/selimerdinc/pythonPlaywrightApi
+  Medium: https://medium.com/@selimerdinc/python-playwright-kullanarak-api-testleri-nas%C4%B1l-yap%C4%B1l%C4%B1r-36b37d2b82a7
+  tags:
+    - tag: Python
+    - tag: Playwright
+
+- name: Robot Framework ile Playwright Tabanlı Browser Kütüphanesi, Web Uygulamalarında Test Otomasyonu
+  descr: "Robot Framework’ün Playwright tabanlı Browser kütüphanesini kullanarak web uygulamaları üzerinde nasıl test otomasyonu yapabileceğimizi iki örnekle göstereceğim."
+  Github: https://github.com/selimerdinc/rfPlaywrightWeb
+  Medium: https://medium.com/@selimerdinc/robot-framework-ile-playwright-tabanl%C4%B1-browser-k%C3%BCt%C3%BCphanesi-web-uygulamalar%C4%B1nda-test-otomasyonu-2b2d1824c2e3
+  tags:
+    - tag: Python
+    - tag: RobotFramework
+    - tag: Playwright

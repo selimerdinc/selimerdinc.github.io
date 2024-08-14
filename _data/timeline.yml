@@ -1,0 +1,69 @@
+# > title: Name of your timeline entry, university or work place
+# > title-url: Link to your timeline entry, university or work place
+# > date: Time span
+# > subtitle: The description under the title
+# > tags: List of tags you want to associate with the entry
+# > timeline-side: The side on which you want to display the entry: left or right
+
+# Example of a timeline entry
+# - title: airbnb
+#   title-url: https://example.com/
+#   date: Sep 2019 - Present
+#   subtitle: Fullstack Developer
+#   tags:
+#     - tag: React
+#     - tag: Javascript
+#     - tag: Ruby
+#     - tag: Rails
+#   timeline-side: right
+
+- title: BtcTurk
+  title-url: Software QA Engineer
+  date: :Nisan 2023 - Şu An
+  subtitle: Software QA Engineer
+  tags:
+    - tag: Python
+    - tag: Robotframework
+    - tag: RestAssured
+    - tag: Appium
+  timeline-side: right
+
+- title: KiwiLaunch
+  title-url: Software QA Engineer
+  date: Haziran 2022- Nisan 2023
+  subtitle: Software QA Engineer
+  tags:
+    - tag: Python
+    - tag: Robotframework
+    - tag: Pytest
+    - tag: Locust
+  timeline-side: right
+
+- title: BtcTurk
+  title-url: Software Backend Developer
+  date: Mart 2022 - Mayıs 2022
+  subtitle: Software Backend Developer (Stajyer)
+  tags:
+    - tag: ASP.NET
+    - tag: MSSQL
+    - tag: EntityFramework
+  timeline-side: left
+
+- title: Divit Teknoloji
+  title-url: Software AI Engineer
+  date: Ağustos 2021 - Eylül 2021
+  subtitle: Software AI Engineer (Stajyer)
+  tags:
+    - tag: Python
+    - tag: OpenCv
+    - tag: Keras
+  timeline-side: right
+
+- title: Beykent Universitesi
+  title-url: https://example.com/
+  date: 2018 - 2022
+  subtitle: Yazılım Mühendisliği
+  timeline-side: left
+
+
+
