@@ -29,11 +29,14 @@
 - name: Linux
   weight: 4
 
-- name: Docker
-  weight: 5
-
 - name: Postman
   weight: 4
 
 - name: Azure
+  weight: 2
+
+- name: Proxyman
+  weight: 4
+
+- name: CLI
   weight: 2

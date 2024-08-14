@@ -5,11 +5,11 @@
 # - name: Framework
 #   weight: 5
 
-- name: Python
-  weight: 5
+- name: HttpToolKit
+  weight: 3
 
 - name: RobotFramework
-  weight: 3
+  weight: 5
 
 - name: Playwright
   weight: 4
