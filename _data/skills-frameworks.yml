@@ -24,7 +24,7 @@
   weight: 3
 
 - name: Jira
-  weight: 1
+  weight: 2
 
 - name: Postman
   weight: 3
