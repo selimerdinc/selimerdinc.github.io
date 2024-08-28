@@ -38,7 +38,7 @@ show_aboutme_card: true
 # about_me_title: The will be displayed as the title in the About Me section
 about_me_title: Hakkımda
 # about_me_description: This will be displayed under the title.
-about_me_description: Merhaba, ben Selim Erdinç. Yazılım geliştirme ve test otomasyonu konularında uzmanım. Python ve test teknolojileriyle ilgili konular üzerine yazılar yazıyorum. Ayrıca, teknoloji ve yazılım dünyasındaki yenilikleri takip ediyor ve bu bilgileri blogumda paylaşıyorum. Detaylı görmek için <a class="highlight-link" href="https://github.com/selimerdinc" target="_blank" rel="noreferrer"> Github </a> ve <a class="highlight-link" href="https://medium.com/@selimerdinc" target="_blank" rel="noreferrer"> Medium </a> hesaplarıma göz atabilirsiniz.
+about_me_description: Merhaba, ben Selim Erdinç. Yazılım geliştirme ve test otomasyonu alanında uzman bir mühendisim. Python ve test teknolojilerindeki yenilikleri yakından takip ederek, bu alandaki en güncel bilgilerle yazılar oluşturuyorum. Amacım, karmaşık yazılım süreçlerini basitleştirerek sektöre katkı sağlamak ve bilgi paylaşımı ile sürekli gelişimi desteklemektir. <a class="highlight-link" href="https://github.com/selimerdinc" target="_blank" rel="noreferrer"> Github </a> ve <a class="highlight-link" href="https://medium.com/@selimerdinc" target="_blank" rel="noreferrer"> Medium </a> hesaplarımdan daha detaylı ulaşabilirsiniz. Teknoloji dünyasının nabzını tutmak ve bu bilgileri sizlerle paylaşmak için takipte kalın.
 
 
 # SKILLS SECTION
