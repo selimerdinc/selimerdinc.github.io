@@ -1,91 +1,242 @@
-<h1 class="title">{{site.contact_title}}</h1>
-<p class="subtitle">{{site.contact_description}}</p>
+<style>
+  .contact-premium {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
-<div class="contact-icons">
-  {% if site.email != null %}
-  <a class="social-link" aria-label="My E-Mail" href="mailto:{{site.email}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#envelope" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
+  .contact-header {
+    margin-bottom: 50px;
+  }
 
-  {% if site.github_username != null %}
-  <a class="social-link" aria-label="My GitHub" target="_blank" rel="noreferrer"
-    href="https://github.com/{{site.github_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#github" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
+  .contact-header .title {
+    margin-bottom: 15px;
+  }
 
-  {% if site.codepen_username != null %}
-  <a class="social-link black" aria-label="My Codepen" target="_blank" rel="noreferrer"
-    href="https://codepen.io/{{site.codepen_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#codepen" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
+  .contact-subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
-  {% if site.dev_username != null %}
-  <a class="social-link black" aria-label="My DEV" target="_blank" rel="noreferrer"
-    href="https://dev.to/{{site.dev_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#dev" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+  }
 
-  {% if site.linkedin_username != null %}
-  <a class="social-link linkedin" aria-label="My LinkedIn" target="_blank" rel="noreferrer"
-    href="https://www.linkedin.com/in/{{site.linkedin_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#linkedin-in" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
+  .contact-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-radius: 20px;
+    padding: 30px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+  }
 
-  {% if site.twitter_username != null %}
-  <a class="social-link twitter" aria-label="My Twitter" target="_blank" rel="noreferrer"
-    href="https://twitter.com/{{site.twitter_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#twitter" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
+  .contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
 
-  {% if site.medium_username != null %}
-   <a class="social-link medium" aria-label="My Medium" target="_blank" rel="noreferrer"
-    href="https://medium.com/{{site.medium_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#medium" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-   {% endif %}
+  .contact-card.email:hover {
+    border-color: #ea4335;
+  }
 
-  {% if site.instagram_username != null %}
-      <a class="social-link superpeer" aria-label="My Instagram" target="_blank" rel="noreferrer"
-    href="https://instagram.com/{{site.instagram_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#instagram" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
+  .contact-card.github:hover {
+    border-color: #fff;
+  }
+
+  .contact-card.linkedin:hover {
+    border-color: #0077b5;
+  }
+
+  .contact-card.medium:hover {
+    border-color: #00ab6c;
+  }
+
+  .contact-card.instagram:hover {
+    border-color: #e4405f;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-card.email .contact-icon {
+    background: rgba(234, 67, 53, 0.15);
+  }
+
+  .contact-card.github .contact-icon {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .contact-card.linkedin .contact-icon {
+    background: rgba(0, 119, 181, 0.15);
+  }
+
+  .contact-card.medium .contact-icon {
+    background: rgba(0, 171, 108, 0.15);
+  }
+
+  .contact-card.instagram .contact-icon {
+    background: rgba(228, 64, 95, 0.15);
+  }
+
+  .contact-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact-card.email .contact-icon svg {
+    fill: #ea4335;
+  }
+
+  .contact-card.github .contact-icon svg {
+    fill: #fff;
+  }
+
+  .contact-card.linkedin .contact-icon svg {
+    fill: #0077b5;
+  }
+
+  .contact-card.medium .contact-icon svg {
+    fill: #00ab6c;
+  }
+
+  .contact-card.instagram .contact-icon svg {
+    fill: #e4405f;
+  }
+
+  .contact-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+
+  .contact-value {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .contact-cta {
+    background: linear-gradient(145deg, rgba(255, 7, 58, 0.15) 0%, rgba(255, 7, 58, 0.05) 100%);
+    border-radius: 24px;
+    padding: 40px;
+    border: 1px solid rgba(255, 7, 58, 0.2);
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .cta-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #ff073a 0%, #ff3d5a 100%);
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(255, 7, 58, 0.4);
+  }
+
+  .cta-button svg {
+    width: 20px;
+    height: 20px;
+  }
+</style>
+
+<div class="contact-premium">
+  <div class="contact-header">
+    <h1 class="title">{{site.contact_title}}</h1>
+    <p class="contact-subtitle">{{site.contact_description}}</p>
+  </div>
+
+  <div class="contact-cards" data-aos="fade-up">
+    {% if site.email %}
+    <a href="mailto:{{site.email}}" class="contact-card email">
+      <div class="contact-icon"><svg viewBox="0 0 24 24">
+          <path
+            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg></div>
+      <div class="contact-label">E-posta</div>
+      <div class="contact-value">{{site.email}}</div>
+    </a>
     {% endif %}
+
+    {% if site.github_username %}
+    <a href="https://github.com/{{site.github_username}}" target="_blank" rel="noreferrer" class="contact-card github">
+      <div class="contact-icon"><svg viewBox="0 0 24 24">
+          <path
+            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg></div>
+      <div class="contact-label">GitHub</div>
+      <div class="contact-value">@{{site.github_username}}</div>
+    </a>
+    {% endif %}
+
+    {% if site.linkedin_username %}
+    <a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" rel="noreferrer"
+      class="contact-card linkedin">
+      <div class="contact-icon"><svg viewBox="0 0 24 24">
+          <path
+            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg></div>
+      <div class="contact-label">LinkedIn</div>
+      <div class="contact-value">@{{site.linkedin_username}}</div>
+    </a>
+    {% endif %}
+
+    {% if site.medium_username %}
+    <a href="https://medium.com/@{{site.medium_username}}" target="_blank" rel="noreferrer" class="contact-card medium">
+      <div class="contact-icon"><svg viewBox="0 0 24 24">
+          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12z" />
+        </svg></div>
+      <div class="contact-label">Medium</div>
+      <div class="contact-value">@{{site.medium_username}}</div>
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="contact-cta" data-aos="fade-up">
+    <h3 class="cta-title">Birlikte Çalışalım 🚀</h3>
+    <p class="cta-text">Test otomasyonu, kalite süreçleri veya danışmanlık için benimle iletişime geçin.</p>
+    <a href="mailto:{{site.email}}" class="cta-button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      E-posta Gönder
+    </a>
+  </div>
 </div>

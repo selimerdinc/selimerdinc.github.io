@@ -1,42 +1,82 @@
-# > name: Name of your Dev Tool
-# > weight: Describes how good you know the tool - values from 1 up to 5
-#
-# Example of a Dev Tool
-# - name: Git
-#   weight: 5
+# DevOps, CI/CD & Araçlar
+# Kategorilere göre sıralı
+
+# DevOps & CI/CD
+- name: Docker
+  weight: 5
+  category: devops
 
 - name: Git
   weight: 5
+  category: devops
 
-- name: Bash
+- name: GitHub Actions
   weight: 3
-
-- name: Scrum
-  weight: 2
-
-- name: Jira
-  weight: 3
+  category: devops
 
 - name: Jenkins
-  weight: 3
-
-- name: Chrome DevTools
-  weight: 2
-
-- name: npm
-  weight: 3
+  weight: 4
+  category: devops
 
 - name: Linux
   weight: 4
+  category: devops
 
+- name: Azure DevOps
+  weight: 3
+  category: devops
+
+# API & Debug Araçları
 - name: Postman
-  weight: 4
-
-- name: Azure
-  weight: 2
+  weight: 5
+  category: api-tools
 
 - name: Proxyman
   weight: 4
+  category: api-tools
 
-- name: CLI
-  weight: 2
+- name: HTTPToolKit
+  weight: 3
+  category: api-tools
+
+- name: Charles Proxy
+  weight: 3
+  category: api-tools
+
+- name: Chrome DevTools
+  weight: 4
+  category: api-tools
+
+- name: Red Pather
+  weight: 5
+  category: api-tools
+
+# Proje Yönetimi
+- name: Jira
+  weight: 4
+  category: project-management
+
+- name: Confluence
+  weight: 3
+  category: project-management
+
+- name: TestRail
+  weight: 3
+  category: project-management
+
+- name: TestMo
+  weight: 4
+  category: project-management
+
+- name: Scrum
+  weight: 4
+  category: project-management
+
+# CLI & Scripting
+- name: Bash
+  weight: 4
+  category: scripting
+
+- name: npm
+  weight: 3
+  category: scripting

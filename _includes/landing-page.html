@@ -1,139 +1,432 @@
+<style>
+  /* Premium Landing Page Enhancement */
+  #landing {
+    position: relative !important;
+    background: linear-gradient(180deg, #1a1b1d 0%, #232527 50%, #2b2d2f 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+
+  /* Hide particles.js - using QA-themed floating text instead */
+  #landing canvas,
+  #landing .particles-js-canvas-el {
+    display: none !important;
+  }
+
+  /* QA-Themed Floating Elements */
+  .qa-floating-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .qa-float {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    opacity: 0.08;
+    animation: floatUp 15s linear infinite;
+    color: #ff073a;
+    text-shadow: 0 0 20px rgba(255, 7, 58, 0.3);
+  }
+
+  .qa-float.success {
+    color: #22c55e;
+  }
+
+  .qa-float.error {
+    color: #ff073a;
+  }
+
+  .qa-float.warning {
+    color: #f59e0b;
+  }
+
+  .qa-float.info {
+    color: #3b82f6;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) rotate(0deg) scale(0.8);
+      opacity: 0;
+    }
+
+    5% {
+      opacity: 0;
+    }
+
+    15% {
+      opacity: 0.06;
+    }
+
+    50% {
+      transform: translateY(0) rotate(8deg) scale(1);
+      opacity: 0.08;
+    }
+
+    85% {
+      opacity: 0.06;
+    }
+
+    95% {
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(-100vh) rotate(15deg) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  /* Gradient Overlay - Premium Centered Glow */
+  #landing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(255, 7, 58, 0.12) 0%, rgba(255, 7, 58, 0.04) 35%, transparent 65%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Bottom fade for smooth section transition - very subtle */
+  #landing::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(43, 45, 47, 0.15) 60%,
+        rgba(43, 45, 47, 0.4) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .landing-title {
+    position: relative !important;
+    z-index: 10;
+    text-align: center !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    margin: 0 auto !important;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Premium Typography */
+  .landing-title h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+
+  .landing-title h1:first-child {
+    font-size: 2.8rem;
+  }
+
+  @media (max-width: 768px) {
+    .landing-title h1 {
+      font-size: 1.8rem;
+    }
+
+    .landing-title h1:first-child {
+      font-size: 2rem;
+    }
+  }
+
+  /* Premium Name Styling */
+  .highlight-title {
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #ff073a 0%, #ff5c5c 50%, #ff073a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+    text-shadow: 0 0 30px rgba(255, 7, 58, 0.3);
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% center;
+    }
+
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  /* Typing Text Enhancement */
+  #txt-rotate {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+  }
+
+  #txt-rotate>.wrap {
+    border-right: 3px solid #ff073a !important;
+    padding-right: 8px;
+    animation: blink-cursor 0.8s infinite;
+  }
+
+  @keyframes blink-cursor {
+
+    0%,
+    50% {
+      border-color: #ff073a;
+    }
+
+    51%,
+    100% {
+      border-color: transparent;
+    }
+  }
+
+  /* Premium Social Icons */
+  .landing-icons {
+    margin-top: 50px !important;
+    gap: 20px;
+  }
+
+  .landing-icons .social-link {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .landing-icons .social-link:hover {
+    transform: translateY(-8px) scale(1.1);
+  }
+
+  .landing-icons .social-link .circle {
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+  }
+
+  .landing-icons .social-link:hover .circle {
+    stroke: #ff073a;
+    filter: drop-shadow(0 0 10px rgba(255, 7, 58, 0.5));
+  }
+
+  .landing-icons .social-link .social-svg {
+    transition: all 0.3s ease;
+  }
+
+  .landing-icons .social-link:hover .social-svg {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+  }
+
+  /* Scroll Indicator */
+  .scroll-down {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    position: relative;
+  }
+
+  .scroll-mouse::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 10px;
+    background: #ff073a;
+    border-radius: 2px;
+    animation: scroll-dot 2s infinite;
+  }
+
+  @keyframes scroll-dot {
+
+    0%,
+    100% {
+      top: 8px;
+      opacity: 1;
+    }
+
+    50% {
+      top: 22px;
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes bounce {
+
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+      transform: translateX(-50%) translateY(10px);
+    }
+  }
+
+  .scroll-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* Particles Enhancement */
+  #landing canvas {
+    opacity: 0.6;
+  }
+</style>
+
 <div id="landing">
+  <!-- QA-Themed Floating Background -->
+  <div class="qa-floating-bg">
+    <span class="qa-float success" style="left: 5%; font-size: 1.5rem; animation-delay: 0s;">200</span>
+    <span class="qa-float error" style="left: 15%; font-size: 2rem; animation-delay: 2s;">404</span>
+    <span class="qa-float success" style="left: 25%; font-size: 1.2rem; animation-delay: 4s;">✓</span>
+    <span class="qa-float warning" style="left: 35%; font-size: 1.8rem; animation-delay: 1s;">500</span>
+    <span class="qa-float info" style="left: 45%; font-size: 1.3rem; animation-delay: 6s;">API</span>
+    <span class="qa-float success" style="left: 55%; font-size: 1.6rem; animation-delay: 3s;">PASS</span>
+    <span class="qa-float error" style="left: 65%; font-size: 1.4rem; animation-delay: 5s;">BUG</span>
+    <span class="qa-float info" style="left: 75%; font-size: 1.1rem; animation-delay: 7s;">TEST</span>
+    <span class="qa-float warning" style="left: 85%; font-size: 1.7rem; animation-delay: 8s;">201</span>
+    <span class="qa-float success" style="left: 95%; font-size: 1.3rem; animation-delay: 9s;">OK</span>
+    <span class="qa-float error" style="left: 10%; font-size: 1.5rem; animation-delay: 10s;">×</span>
+    <span class="qa-float info" style="left: 50%; font-size: 1.4rem; animation-delay: 11s;">QA</span>
+    <span class="qa-float success" style="left: 30%; font-size: 1.2rem; animation-delay: 12s;">BUG</span>
+    <span class="qa-float warning" style="left: 70%; font-size: 1.6rem; animation-delay: 13s;">E2E</span>
+    <span class="qa-float error" style="left: 90%; font-size: 1.3rem; animation-delay: 14s;">FAIL</span>
+  </div>
+
   <div class="landing-title">
-    <h1>Merhabalar, Ben
+    <h1>Merhaba, Ben
       <span class="highlight-title">{{site.username}}</span>,
     </h1>
     <h1>
-      <span id="txt-rotate" data-period="2000"
-        data-rotate='["{{site.typing_text}}", "Aşağıya kaydırarak hakkımda daha fazlasına ulaşabilirsiniz."]'
-      >
+      <span id="txt-rotate" data-period="2000" data-rotate='["{{site.typing_text}}", "Aşağıya kaydırarak devam edin."]'>
       </span>
     </h1>
     <div class="landing-icons">
       {% if site.email != null %}
-        <a class="social-link email" aria-label="My E-Mail" href="mailto:{{site.email}}">
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
-          </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#envelope" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">E-Mail</span>
-        </a>
-      {% endif %}
-
-      {% if site.github_username != null %}
-        <a class="social-link" aria-label="My GitHub" target="_blank" rel="noreferrer"
-          href="https://github.com/{{site.github_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
-          </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#github" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">GitHub</span>
-        </a>
-      {% endif %}
-
-      {% if site.codepen_username != null %}
-        <a class="social-link" aria-label="My Codepen" target="_blank" rel="noreferrer"
-          href="https://codepen.io/{{site.codepen_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
-          </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#codepen" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">CodePen</span>
-        </a>
-      {% endif %}
-
-      {% if site.instagram_username != null %}
-        <a class="social-link" aria-label="My Instagram" target="_blank" rel="noreferrer"
-          href="https://instagram.com/{{site.instagram_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
-          </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#instagram" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">Instagram</span>
-        </a>
-      {% endif %}
-
-      {% if site.dev_username != null %}
-        <a class="social-link" aria-label="My DEV" target="_blank" rel="noreferrer"
-          href="https://dev.to/{{site.dev_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
-          </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#dev" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">DEV</span>
-        </a>
-      {% endif %}
-
-      {% if site.linkedin_username != null %}
-        <a class="social-link linkedin" aria-label="My LinkedIn" target="_blank"
-          rel="noreferrer" href="https://www.linkedin.com/in/{{site.linkedin_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
-          </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#linkedin-in" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">LinkedIn</span>
-        </a>
-      {% endif %}
-
-      {% if site.twitter_username != null %}
-        <a class="social-link twitter" aria-label="My Twitter" target="_blank"
-          rel="noreferrer" href="https://twitter.com/{{site.twitter_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
-          </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#twitter" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">Twitter</span>
-        </a>
-      {% endif %}
-
-      <a class="social-link medium" aria-label="My Medium" target="_blank"
-        rel="noreferrer" href="https://medium.com/@{{site.medium_username}}"
-      >
+      <a class="social-link email" aria-label="My E-Mail" href="mailto:{{site.email}}">
         <svg viewBox="0 0 200 200" class="circle">
           <circle cx="100" cy="100" r="80" />
         </svg>
         <div class="social">
           <svg class="social-svg" viewBox="0 0 48 48">
-            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#medium" | prepend: site.baseurl }}"></use>
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/solid.svg#envelope" | prepend: site.baseurl }}"></use>
+          </svg>
+        </div>
+        <span class="label">E-Mail</span>
+      </a>
+      {% endif %}
+
+      {% if site.github_username != null %}
+      <a class="social-link" aria-label="My GitHub" target="_blank" rel="noreferrer"
+        href="https://github.com/{{site.github_username}}">
+        <svg viewBox="0 0 200 200" class="circle">
+          <circle cx="100" cy="100" r="80" />
+        </svg>
+        <div class="social">
+          <svg class="social-svg" viewBox="0 0 48 48">
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/brands.svg#github" | prepend: site.baseurl }}"></use>
+          </svg>
+        </div>
+        <span class="label">GitHub</span>
+      </a>
+      {% endif %}
+
+      {% if site.instagram_username != null %}
+      <a class="social-link" aria-label="My Instagram" target="_blank" rel="noreferrer"
+        href="https://instagram.com/{{site.instagram_username}}">
+        <svg viewBox="0 0 200 200" class="circle">
+          <circle cx="100" cy="100" r="80" />
+        </svg>
+        <div class="social">
+          <svg class="social-svg" viewBox="0 0 48 48">
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/brands.svg#instagram" | prepend: site.baseurl }}"></use>
+          </svg>
+        </div>
+        <span class="label">Instagram</span>
+      </a>
+      {% endif %}
+
+      {% if site.linkedin_username != null %}
+      <a class="social-link linkedin" aria-label="My LinkedIn" target="_blank" rel="noreferrer"
+        href="https://www.linkedin.com/in/{{site.linkedin_username}}">
+        <svg viewBox="0 0 200 200" class="circle">
+          <circle cx="100" cy="100" r="80" />
+        </svg>
+        <div class="social">
+          <svg class="social-svg" viewBox="0 0 48 48">
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/brands.svg#linkedin-in" | prepend: site.baseurl }}"></use>
+          </svg>
+        </div>
+        <span class="label">LinkedIn</span>
+      </a>
+      {% endif %}
+
+      <a class="social-link medium" aria-label="My Medium" target="_blank" rel="noreferrer"
+        href="https://medium.com/@{{site.medium_username}}">
+        <svg viewBox="0 0 200 200" class="circle">
+          <circle cx="100" cy="100" r="80" />
+        </svg>
+        <div class="social">
+          <svg class="social-svg" viewBox="0 0 48 48">
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/brands.svg#medium" | prepend: site.baseurl }}"></use>
           </svg>
         </div>
         <span class="label">Medium</span>
       </a>
 
     </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-down">
+    <div class="scroll-mouse"></div>
+    <span class="scroll-text">Aşağı Kaydır</span>
   </div>
 </div>

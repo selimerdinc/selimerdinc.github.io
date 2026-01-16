@@ -1,12 +1,21 @@
-# > name: Name of your programming language
-# > weight: Describes how good you know the language - values from 1 up to 5
-#
-# Example of a Language
-# - name: Language
-#   weight: 5
+# Programlama Dilleri ve Alt Framework/Kütüphaneleri
+# parent: Ana dil
+# children: Bu dille kullanılan frameworkler
 
 - name: Python
   weight: 5
+  icon: "🐍"
+  children:
+    - RobotFramework
+    - Playwright
+    - Pytest
+    - Locust
+    - Selenium
+    - Flask
 
 - name: Java
-  weight: 5
+  weight: 4
+  icon: "☕"
+  children:
+    - Appium
+    - RestAssured

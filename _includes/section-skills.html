@@ -1,28 +1,257 @@
 <h1 class="title">{{site.skills_title}}</h1>
 
-<div id="skills">
-  <input type="radio" id="all" name="filter" checked />
-  <label class="filter-button neumorphism-button" for="all">Hepsi</label>
-  <input type="radio" id="language" name="filter" />
-  <label class="filter-button neumorphism-button" for="language">Diller</label>
-  <input type="radio" id="framework" name="filter" />
-  <label class="filter-button neumorphism-button" for="framework">Frameworks</label>
-  <input type="radio" id="tool" name="filter" />
-  <label class="filter-button neumorphism-button" for="tool">Araçlar</label>
+{% assign start_year = 2022 %}
+{% assign start_month = 6 %}
+{% assign current_year = 'now' | date: '%Y' | plus: 0 %}
+{% assign current_month = 'now' | date: '%m' | plus: 0 %}
+{% assign years_diff = current_year | minus: start_year %}
+{% if current_month < start_month %} {% assign years_diff=years_diff | minus: 1 %} {% endif %} <style>
+  /* Premium Skills - Tree Structure */
+  .skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  }
 
-  {% for language in site.data.skills-languages %}
-    <div skill-type="language" skill-weight="{{language.weight}}" data-aos="zoom-in">
-      {{language.name}}
+  .skills-summary {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  }
+
+  .summary-stat {
+  text-align: center;
+  padding: 20px 30px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  min-width: 120px;
+  }
+
+  .summary-stat:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 7, 58, 0.3);
+  }
+
+  .summary-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff073a 0%, #ff847c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  }
+
+  .summary-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
+  }
+
+  .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  }
+
+  @media (max-width: 900px) {
+  .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  .language-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  }
+
+  .language-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .language-card.python { border-left: 4px solid #3776ab; }
+  .language-card.java { border-left: 4px solid #f89820; }
+
+  .language-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .language-icon { font-size: 2.5rem; }
+  .language-name { font-size: 1.5rem; font-weight: 700; margin: 0; }
+  .python .language-name { color: #3776ab; }
+  .java .language-name { color: #f89820; }
+
+  .language-badge {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  }
+
+  .tree-items { display: flex; flex-direction: column; gap: 8px; }
+
+  .tree-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 35px;
+  }
+
+  .tree-item::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  }
+
+  .tree-item:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(8px); }
+  .python .tree-item:hover { background: rgba(55, 118, 171, 0.15); }
+  .java .tree-item:hover { background: rgba(248, 152, 32, 0.15); }
+  .tree-item-name { font-size: 0.95rem; color: #fff; font-weight: 500; }
+
+  .tools-section { margin-top: 40px; }
+
+  .tools-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  }
+
+  .tools-icon { font-size: 1.5rem; }
+  .tools-title { font-size: 1.2rem; font-weight: 600; color: #fff; margin: 0; }
+
+  .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  }
+
+  .tool-category {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tool-category-header {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ff073a;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  }
+
+  .tool-items { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .tool-tag {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease;
+  }
+
+  .tool-tag:hover {
+  background: rgba(255, 7, 58, 0.15);
+  transform: translateY(-2px);
+  }
+  </style>
+
+  <div class="skills-container">
+    <div class="skills-summary" data-aos="fade-up">
+      <div class="summary-stat">
+        <div class="summary-number">{{ site.data.skills-languages | size }}</div>
+        <div class="summary-label">Programlama Dili</div>
+      </div>
+      <div class="summary-stat">
+        <div class="summary-number">{{ site.data.skills-frameworks | size }}</div>
+        <div class="summary-label">Framework</div>
+      </div>
+      <div class="summary-stat">
+        <div class="summary-number">{{ site.data.skills-tools | size }}</div>
+        <div class="summary-label">Araç & Teknoloji</div>
+      </div>
+      <div class="summary-stat">
+        <div class="summary-number">{{ years_diff }}+</div>
+        <div class="summary-label">Yıl Deneyim</div>
+      </div>
     </div>
-  {% endfor %}
-  {% for framework in site.data.skills-frameworks %}
-    <div skill-type="framework" skill-weight="{{framework.weight}}" data-aos="zoom-in">
-      {{framework.name}}
+
+    <div class="skills-grid">
+      {% for language in site.data.skills-languages %}
+      <div class="language-card {{ language.name | downcase }}" data-aos="fade-up">
+        <div class="language-header">
+          <span class="language-icon">{{ language.icon }}</span>
+          <h3 class="language-name">{{ language.name }}</h3>
+          <span class="language-badge">{{ language.children | size }} framework</span>
+        </div>
+        <div class="tree-items">
+          {% for child in language.children %}
+          <div class="tree-item">
+            <span class="tree-item-name">{{ child }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
     </div>
-  {% endfor %}
-  {% for tool in site.data.skills-tools %}
-    <div skill-type="tool" skill-weight="{{tool.weight}}" data-aos="zoom-in">
-      {{tool.name}}
+
+    <div class="tools-section" data-aos="fade-up">
+      <div class="tools-header">
+        <span class="tools-icon">⚡</span>
+        <h3 class="tools-title">DevOps, CI/CD & Araçlar</h3>
+      </div>
+      <div class="tools-grid">
+        <div class="tool-category">
+          <div class="tool-category-header">🚀 DevOps & CI/CD</div>
+          <div class="tool-items">
+            {% for tool in site.data.skills-tools %}{% if tool.category == "devops" %}<span class="tool-tag">{{
+              tool.name }}</span>{% endif %}{% endfor %}
+          </div>
+        </div>
+        <div class="tool-category">
+          <div class="tool-category-header">🔧 API & Debug</div>
+          <div class="tool-items">
+            {% for tool in site.data.skills-tools %}{% if tool.category == "api-tools" %}<span class="tool-tag">{{
+              tool.name }}</span>{% endif %}{% endfor %}
+          </div>
+        </div>
+        <div class="tool-category">
+          <div class="tool-category-header">📋 Proje Yönetimi</div>
+          <div class="tool-items">
+            {% for tool in site.data.skills-tools %}{% if tool.category == "project-management" %}<span
+              class="tool-tag">{{ tool.name }}</span>{% endif %}{% endfor %}
+          </div>
+        </div>
+        <div class="tool-category">
+          <div class="tool-category-header">💻 CLI & Scripting</div>
+          <div class="tool-items">
+            {% for tool in site.data.skills-tools %}{% if tool.category == "scripting" %}<span class="tool-tag">{{
+              tool.name }}</span>{% endif %}{% endfor %}
+          </div>
+        </div>
+      </div>
     </div>
-  {% endfor %}
-</div>
+  </div>

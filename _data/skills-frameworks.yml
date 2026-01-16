@@ -1,39 +1,47 @@
-# > name: Name of your framework
-# > weight: Describes how good you know the framework - values from 1 up to 5
-#
-# Example of a framework
-# - name: Framework
-#   weight: 5
+# Test Otomasyonu Frameworkleri
+# category: Gruplama için kullanılır
 
-- name: HttpToolKit
-  weight: 3
-
+# Web & API Test
 - name: RobotFramework
   weight: 5
+  category: test-automation
+  parent: Python
 
 - name: Playwright
   weight: 4
-
-- name: Locust
-  weight: 3
-
-- name: Pytest
-  weight: 2
+  category: test-automation
+  parent: Python
 
 - name: Selenium
   weight: 3
+  category: test-automation
+  parent: Python
 
-- name: Jira
-  weight: 2
+- name: Pytest
+  weight: 4
+  category: test-automation
+  parent: Python
 
-- name: Postman
-  weight: 3
-
-- name: Flask
-  weight: 2
-
+# Mobil Test
 - name: Appium
   weight: 4
+  category: mobile-test
+  parent: Java
 
-- name: Docker
-  weight: 5
+# API Test
+- name: RestAssured
+  weight: 3
+  category: api-test
+  parent: Java
+
+# Performance Test
+- name: Locust
+  weight: 4
+  category: performance
+  parent: Python
+
+# Backend
+- name: Flask
+  weight: 3
+  category: backend
+  parent: Python

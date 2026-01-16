@@ -37,7 +37,7 @@ show_aboutme_card: true
 # about_me_title: The will be displayed as the title in the About Me section
 about_me_title: Hakkımda
 # about_me_description: This will be displayed under the title.
-about_me_description: Merhaba, ben Selim Erdinç. Yazılım geliştirme ve test otomasyonu alanında uzman bir mühendisim. Python ve test teknolojilerindeki yenilikleri yakından takip ederek, bu alandaki en güncel bilgilerle yazılar oluşturuyorum. Amacım, karmaşık yazılım süreçlerini basitleştirerek sektöre katkı sağlamak ve bilgi paylaşımı ile sürekli gelişimi desteklemektir. <a class="highlight-link" href="https://github.com/selimerdinc" target="_blank" rel="noreferrer"> Github </a> ve <a class="highlight-link" href="https://medium.com/@selimerdinc" target="_blank" rel="noreferrer"> Medium </a> hesaplarımdan daha detaylı ulaşabilirsiniz. Teknoloji dünyasının nabzını tutmak ve bu bilgileri sizlerle paylaşmak için takipte kalın.
+about_me_description: Test otomasyonu ve kalite güvence alanında uzmanlaşmış bir yazılım mühendisiyim. Python ekosistemi ve modern test frameworkleri konusunda derin deneyime sahip olarak, ölçeklenebilir ve sürdürülebilir test çözümleri geliştiriyorum. BtcTurk gibi yüksek trafikli fintech platformlarında kritik sistemlerin kalite süreçlerini yönetiyorum. Açık kaynak projelere katkıda bulunuyor ve teknik içerikler üreterek bilgi paylaşımını destekliyorum.
 
 
 # SKILLS SECTION
@@ -46,7 +46,7 @@ about_me_description: Merhaba, ben Selim Erdinç. Yazılım geliştirme ve test 
 # > setting this to false, will omit the Skills section
 show_skills_card: true
 # about_me_title: The will be displayed as the title in the Skills section
-skills_title: Tecrübeler
+skills_title: Teknoloji Stack'i
 
 # TIMELINE SECTION
 # show_timeline_card:
@@ -64,6 +64,9 @@ cv_download_link: CV_SE.pdf
 # > setting this to true, will display the Projects section
 # > setting this to false, will omit the Projects section
 show_projects_card: true
+# show_articles_card:
+# > setting this to true, will display the Medium Articles section
+show_articles_card: true
 # show_redpather_card:
 # > setting this to true, will display the Red Pather Download section
 show_redpather_card: true

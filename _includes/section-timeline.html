@@ -1,69 +1,227 @@
-<h1 class="title">{{site.timeline_title}}</h1>
-<p class="subtitle">
-  Daha detaylı bilgi için
-  <a class="highlight-link" href="{{site.cv_download_link}}" target="_blank" rel="noreferrer">
-    CV
-  </a>.
-</p>
+<style>
+  .timeline-premium {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto 0;
+  }
 
-<div class="timeline-wrapper">
-  <ul class="timeline">
-    {% for event in site.data.timeline %}
-      {% if event.timeline-side == 'left' %}
-        <li>
-          <div class="direction-l">
-            <div class="flag-wrapper">
-              <span class="hexagon"></span>
-              <span class="flag neumorphism-button" data-aos="zoom-in-right">
-                <a href="{{event.title-url}}" target="_blank" rel="noreferrer">
-                  <span>{{event.title}}</span>
-                </a>
-              </span>
-              <span class="time-wrapper" data-aos="zoom-in-right">
-                <span class="time neumorphism-card">{{event.date}}</span>
-              </span>
-            </div>
-            <div class="desc neumorphism-card" data-aos="zoom-in-right">
-              {{event.subtitle}}
-              {% if event.tags %}
-                <div class="tag-wrapper">
-                  {% for tag in event.tags %}
-                    <span class="tag neumorphism-card">{{tag.tag}}</span>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        </li>
-      {% endif %}
+  .timeline-premium::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff073a 0%, rgba(255, 7, 58, 0.3) 100%);
+    border-radius: 2px;
+  }
 
-      {% if event.timeline-side == 'right' %}
-        <li>
-          <div class="direction-r">
-            <div class="flag-wrapper">
-              <span class="hexagon"></span>
-              <span class="flag neumorphism-button" data-aos="zoom-in-left">
-                <a href="{{event.title-url}}" target="_blank" rel="noreferrer">
-                  <span>{{event.title}}</span>
-                </a>
-              </span>
-              <span class="time-wrapper" data-aos="zoom-in-left">
-                <span class="time neumorphism-card">{{event.date}}</span>
-              </span>
-            </div>
-            <div class="desc neumorphism-card" data-aos="zoom-in-left">
-              {{event.subtitle}}
-              {% if event.tags %}
-                <div class="tag-wrapper">
-                  {% for tag in event.tags %}
-                    <span class="tag neumorphism-card">{{tag.tag}}</span>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        </li>
+  @media (max-width: 768px) {
+    .timeline-premium::before {
+      left: 20px;
+    }
+  }
+
+  .timeline-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .cv-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(145deg, rgba(255, 7, 58, 0.2) 0%, rgba(255, 7, 58, 0.1) 100%);
+    border: 1px solid rgba(255, 7, 58, 0.3);
+    border-radius: 30px;
+    color: #ff073a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .cv-button:hover {
+    background: #ff073a;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 7, 58, 0.4);
+  }
+
+  .cv-button svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    width: 45%;
+  }
+
+  .timeline-item:nth-child(odd) {
+    margin-left: 5%;
+  }
+
+  .timeline-item:nth-child(even) {
+    margin-left: 50%;
+  }
+
+  @media (max-width: 768px) {
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+      width: calc(100% - 50px);
+      margin-left: 50px;
+    }
+  }
+
+  .timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #ff073a;
+    border-radius: 50%;
+    border: 4px solid #2b2d2f;
+    box-shadow: 0 0 20px rgba(255, 7, 58, 0.5);
+  }
+
+  .timeline-item:nth-child(odd) .timeline-dot {
+    right: -8%;
+    top: 30px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: -8%;
+    top: 30px;
+  }
+
+  @media (max-width: 768px) {
+
+    .timeline-dot,
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -42px;
+      right: auto;
+    }
+  }
+
+  .timeline-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 7, 58, 0.3);
+  }
+
+  .timeline-card.work,
+  .timeline-card.education,
+  .timeline-card.intern {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+  }
+
+  .timeline-card.work {
+    border-left: 4px solid #ff073a;
+  }
+
+  .timeline-card.education {
+    border-left: 4px solid #3776ab;
+  }
+
+  .timeline-card.intern {
+    border-left: 4px solid #22c55e;
+  }
+
+  .timeline-date {
+    display: inline-block;
+    background: rgba(255, 7, 58, 0.15);
+    color: #ff073a;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .timeline-company {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+
+  .timeline-role {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+  }
+
+  .timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .timeline-tag {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+  }
+
+  .timeline-tag:hover {
+    background: rgba(255, 7, 58, 0.2);
+    color: #ff073a;
+  }
+
+  .timeline-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+</style>
+
+<div class="timeline-header">
+  <h1 class="title">{{site.timeline_title}}</h1>
+  <a class="cv-button" href="{{site.cv_download_link}}" target="_blank" rel="noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    CV İndir
+  </a>
+</div>
+
+<div class="timeline-premium">
+  {% for event in site.data.timeline %}
+  <div class="timeline-item" data-aos="fade-up">
+    <div class="timeline-dot"></div>
+    <div
+      class="timeline-card {% if event.subtitle contains 'Stajyer' %}intern{% elsif event.subtitle contains 'Üniversitesi' or event.subtitle contains 'Mühendisliği' %}education{% else %}work{% endif %}">
+      <span class="timeline-date">{{ event.date }}</span>
+      <h3 class="timeline-company">
+        {% if event.subtitle contains 'Üniversitesi' or event.subtitle contains 'Mühendisliği' %}<span
+          class="timeline-icon">🎓</span>{% else %}<span class="timeline-icon">💼</span>{% endif %}
+        {{ event.title }}
+      </h3>
+      <p class="timeline-role">{{ event.subtitle }}</p>
+      {% if event.tags %}
+      <div class="timeline-tags">
+        {% for tag in event.tags %}<span class="timeline-tag">{{ tag.tag }}</span>{% endfor %}
+      </div>
       {% endif %}
-    {% endfor %}
-  </ul>
+    </div>
+  </div>
+  {% endfor %}
 </div>
