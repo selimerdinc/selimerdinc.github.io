@@ -118,6 +118,39 @@
         .rp-steps b {
             color: #ccc;
         }
+
+        .rp-terminal {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.7rem;
+            color: #ff3b30;
+            border: 1px solid rgba(255, 59, 48, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rp-terminal::before {
+            content: "HIZLI ÇÖZÜM";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255, 59, 48, 0.1);
+            padding: 2px 8px;
+            font-size: 0.5rem;
+            font-weight: 800;
+            border-bottom-left-radius: 8px;
+        }
+
+        .rp-terminal code {
+            display: block;
+            margin-top: 5px;
+            color: #ccc;
+            opacity: 0.9;
+            word-break: break-all;
+        }
     </style>
 
     <div class="rp-container">
@@ -161,14 +194,26 @@
                 </svg>
                 GÜVENLİK NOTU & KURULUM
             </div>
-            <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Açılışta "Geliştirici doğrulanamıyor"
-                uyarısı için:</p>
+            <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Apple sertifikasız uygulama uyarısını
+                aşmak için şu iki yöntemden birini kullanın:</p>
+
+            <p
+                style="font-size: 0.65rem; color: #ff3b30; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px;">
+                YÖNTEM 1: MANUEL İZİN</p>
             <ul class="rp-steps">
                 <li><span>1</span> <b>DMG dosyasını açın</b> ve RedPather'ı Uygulamalar klasörüne taşıyın.</li>
                 <li><span>2</span> Uygulamaya <b>Sağ Tıklayın</b> (veya Ctrl+Tıklama).</li>
                 <li><span>3</span> Menüdeki <b>Aç (Open)</b> seçeneğini seçin.</li>
                 <li><span>4</span> Çıkan pencerede tekrar <b>Aç</b> butonuna tıklayın.</li>
             </ul>
+
+            <p
+                style="font-size: 0.65rem; color: #ff3b30; font-weight: 700; margin: 20px 0 10px 0; letter-spacing: 0.5px;">
+                YÖNTEM 2: TERMİNAL (HIZLI)</p>
+            <div class="rp-terminal">
+                Terminali açıp şu komutu yapıştırın:
+                <code>xattr -cr /Applications/RedPather.app</code>
+            </div>
         </div>
     </div>
 </section>
