@@ -69,6 +69,11 @@ show_projects_card: true
 show_articles_card: true
 # show_redpather_card:
 # > setting this to true, will display the Red Pather Download section
+# show_scryno_card:
+# > setting this to true, will display the Scryno Download & Guide section
+show_scryno_card: true
+# show_redpather_card:
+# > setting this to true, will display the Red Pather Download section
 show_redpather_card: true
 # show_projects:
 # > setting this to true, will display your listed projects in _data/projects.yml

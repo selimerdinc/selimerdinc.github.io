@@ -57,6 +57,9 @@
       {% include section-articles.html %}
     </section>
     {% endif %}
+    {%if site.show_scryno_card %}
+    {% include section-scryno.html %}
+    {% endif %}
     {%if site.show_redpather_card %}
     {% include section-redpather.html %}
     {% endif %}
