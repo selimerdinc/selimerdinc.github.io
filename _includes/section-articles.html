@@ -215,12 +215,110 @@
 <script>
   (function () {
     const MEDIUM_USERNAME = 'selimerdinc';
-    const RSS_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`;
     const ARTICLE_COUNT = 9;
     const container = document.getElementById('medium-articles');
 
+    const FALLBACK_ARTICLES = [
+  {
+    "title": "Red Pather: Mobil Otomasyonda AI Devrimi ve “Extreme Premium” Bir Mühendislik Hikayesi",
+    "link": "https://medium.com/@selimerdinc/red-pather-mobil-otomasyonda-ai-devrimi-ve-extreme-premium-bir-m%C3%BChendislik-hikayesi-2027e2527201?source=rss-4f2d9fa88225------2",
+    "pubDate": "Thu, 26 Feb 2026 08:07:18 GMT",
+    "categories": [],
+    "description": "Mobil test otomasyonu dünyasında yıllardır aynı sancıları çekiyoruz: Bitmek bilmeyen XPath savaşları, stabil olmayan locatorlar ve her uygulama güncel"
+  },
+  {
+    "title": "Python ve Flask ile Etkileşimli UI Test Uygulaması Geliştirme: QAUIde",
+    "link": "https://medium.com/@selimerdinc/python-ve-flask-ile-etkile%C5%9Fimli-ui-test-uygulamas%C4%B1-geli%C5%9Ftirme-qauide-224c37da4e43?source=rss-4f2d9fa88225------2",
+    "pubDate": "Sun, 09 Mar 2025 06:00:52 GMT",
+    "categories": [
+      "testing",
+      "flask",
+      "python"
+    ],
+    "description": "Yazılım geliştirme dünyasında, kullanıcı arayüzü (UI) testleri, uygulamaların kalitesini ve güvenilirliğini sağlamak için kritik bir rol oynar. Ancak,"
+  },
+  {
+    "title": "SDLC ve STLC Nedir?",
+    "link": "https://medium.com/@selimerdinc/sdlc-ve-stlc-nedir-6bde8144125d?source=rss-4f2d9fa88225------2",
+    "pubDate": "Fri, 13 Sep 2024 17:52:05 GMT",
+    "categories": [
+      "software",
+      "stlc",
+      "sdlc"
+    ],
+    "description": "SDLC (Software Development Life Cycle) ve STLC (Software Testing Life Cycle) yazılım geliştirme ve test süreçlerini tanımlayan iki önemli kavramdır. İ"
+  },
+  {
+    "title": "Locust ile Gelişmiş Yük Testi: Reqres.in Üzerinde Örnek Uygulama",
+    "link": "https://medium.com/@selimerdinc/locust-ile-geli%C5%9Fmi%C5%9F-y%C3%BCk-testi-reqres-in-%C3%BCzerinde-%C3%B6rnek-uygulama-28495a62f8db?source=rss-4f2d9fa88225------2",
+    "pubDate": "Wed, 17 Jul 2024 20:52:22 GMT",
+    "categories": [
+      "locust",
+      "load-testing",
+      "qa"
+    ],
+    "description": "Yük testi (load testing), bir uygulamanın performansını ölçmek ve sınırlarını belirlemek amacıyla yapılan bir test türüdür. Bu testler, uygulamanın be"
+  },
+  {
+    "title": "Python Flask ile Mock API ve Swagger Dokümantasyonu Oluşturma",
+    "link": "https://medium.com/@selimerdinc/python-flask-ile-mock-api-ve-swagger-dok%C3%BCmantasyonu-olu%C5%9Fturma-9fc79d9e650c?source=rss-4f2d9fa88225------2",
+    "pubDate": "Tue, 09 Jul 2024 10:02:24 GMT",
+    "categories": [
+      "python",
+      "mock",
+      "flask"
+    ],
+    "description": "Günümüzde API’ler, modern yazılım geliştirme süreçlerinin temel taşlarından biridir. Ancak, gerçek API’lerle çalışmak her zaman mümkün veya pratik olm"
+  },
+  {
+    "title": "Robot Framework ile Playwright Tabanlı Browser Kütüphanesi: Web Uygulamalarında Test Otomasyonu…",
+    "link": "https://medium.com/@selimerdinc/robot-framework-ile-playwright-tabanl%C4%B1-browser-k%C3%BCt%C3%BCphanesi-web-uygulamalar%C4%B1nda-test-otomasyonu-2b2d1824c2e3?source=rss-4f2d9fa88225------2",
+    "pubDate": "Sun, 07 Jul 2024 18:32:55 GMT",
+    "categories": [
+      "sdet",
+      "python",
+      "qa"
+    ],
+    "description": "🤖 Robot Framework ile Playwright Tabanlı Browser Kütüphanesi: Web Uygulamalarında Test Otomasyonu 🌐 Yazılım test otomasyonu, manuel testlerin tekrarla"
+  },
+  {
+    "title": "Python Playwright Kullanarak API Testleri Nasıl Yapılır?",
+    "link": "https://medium.com/@selimerdinc/python-playwright-kullanarak-api-testleri-nas%C4%B1l-yap%C4%B1l%C4%B1r-36b37d2b82a7?source=rss-4f2d9fa88225------2",
+    "pubDate": "Sat, 06 Jul 2024 18:32:52 GMT",
+    "categories": [
+      "sdet",
+      "software-development",
+      "playwright-test"
+    ],
+    "description": "API testleri, modern yazılım geliştirme süreçlerinde oldukça kritik bir rol oynar. Bu testler, uygulamanızın API’lerinin beklenen şekilde çalıştığını "
+  },
+  {
+    "title": "Web Uygulamalarında Test Otomasyonu: Playwright ile TextBox Testleri",
+    "link": "https://medium.com/@selimerdinc/web-uygulamalar%C4%B1nda-test-otomasyonu-playwright-ile-textbox-testleri-c48c07aefbaf?source=rss-4f2d9fa88225------2",
+    "pubDate": "Wed, 03 Jul 2024 19:42:58 GMT",
+    "categories": [
+      "sdet",
+      "playwright-automation",
+      "playwright-test"
+    ],
+    "description": "Web uygulamalarının geliştirilme sürecinde test otomasyonu, yazılımın kalitesini artırmak ve hata ayıklama süreçlerini optimize etmek için kritik bir "
+  },
+  {
+    "title": "Python Kullanarak Projelerimizi Nasıl Paketleriz?",
+    "link": "https://medium.com/@selimerdinc/python-kullanarak-projelerimiz-nas%C4%B1l-paketleriz-3e3793c09958?source=rss-4f2d9fa88225------2",
+    "pubDate": "Sat, 29 Jun 2024 21:03:08 GMT",
+    "categories": [
+      "python-libraries",
+      "python-packages",
+      "software-engineering"
+    ],
+    "description": "Benim örneğim Python programlama dili kullanarak döviz kurları sağlayan bir Flask API geliştirme sürecini ele alacağız. WebScraping yoluyla çektiğimiz"
+  }
+];
+
     function formatDate(dateString) {
       const date = new Date(dateString);
+      if (isNaN(date.getTime())) return dateString;
       const months = ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
         'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'];
       return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
@@ -233,6 +331,7 @@
     }
 
     function truncateText(text, maxLength) {
+      if (!text) return '';
       if (text.length <= maxLength) return text;
       return text.substr(0, maxLength).trim() + '...';
     }
@@ -244,7 +343,6 @@
 
     function renderArticles(articles) {
       if (!articles || articles.length === 0) {
-        container.innerHTML = '<p class="articles-loading">Makale bulunamadı.</p>';
         return;
       }
 
@@ -280,37 +378,28 @@
 
       container.innerHTML = html;
 
-      // Re-initialize AOS for new elements
       if (typeof AOS !== 'undefined') {
         AOS.refresh();
       }
     }
 
-    function showError() {
-      container.innerHTML = `
-      <p class="articles-loading">
-        Makaleler yüklenirken bir hata oluştu.<br>
-        <a href="https://medium.com/@${MEDIUM_USERNAME}" target="_blank" style="color: #ff073a;">
-          Medium profilimi ziyaret edin →
-        </a>
-      </p>
-    `;
-    }
+    // Render immediately with pre-cached articles (no delay, no Cloudflare error)
+    renderArticles(FALLBACK_ARTICLES);
 
-    // Fetch articles
-    fetch(RSS_URL)
+    // Try fetching fresh feed in the background
+    const RSS_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`;
+    fetch(RSS_URL, { cache: 'no-store' })
       .then(response => {
         if (!response.ok) throw new Error('Network error');
         return response.json();
       })
       .then(data => {
-        if (data.status !== 'ok') throw new Error('RSS error');
-        const articles = data.items.slice(0, ARTICLE_COUNT);
-        renderArticles(articles);
+        if (data && data.status === 'ok' && Array.isArray(data.items) && data.items.length > 0) {
+          renderArticles(data.items.slice(0, ARTICLE_COUNT));
+        }
       })
-      .catch(error => {
-        console.error('Medium fetch error:', error);
-        showError();
+      .catch(() => {
+        // Quietly keep displaying fallback articles
       });
   })();
 </script>
